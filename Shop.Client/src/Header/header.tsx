@@ -2,6 +2,7 @@ import React from "react";
 import "./header.css";
 import logo from "./images/bookstore-shop-logo-icon.jpg";
 
+
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {

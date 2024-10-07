@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./list.css";
 import Filter from "../Filter/filter";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { RootState } from "../main";
 import { Link } from "react-router-dom";
 import { ProductList } from "../ProductList/productList";
@@ -14,7 +14,7 @@ import { setProducts, showLoadingList } from "../redux/slices";
 interface ListProps {}
 
 const List: React.FC<ListProps> = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch ();
 
   const doSuccess = (data: IProduct[]) => {
     const productsList: IProductList[] = data.map((element) => ({
@@ -38,9 +38,9 @@ const List: React.FC<ListProps> = () => {
     getProducts(doSuccess, doError);
   }, []);
 
-  const filter = useSelector((state: RootState) => state.listSlices.filter);
-  const products = useSelector((state: RootState) => state.listSlices.products);
-  const loading = useSelector((state: RootState) => state.listSlices.loading);
+  const filter = useAppSelector((state: RootState) => state.listSlices.filter);
+  const products = useAppSelector((state: RootState) => state.listSlices.products);
+  const loading = useAppSelector((state: RootState) => state.listSlices.loading);
 
   const filteredProducts = products.filter((item) => {
     const titleCondition =
@@ -64,7 +64,7 @@ const List: React.FC<ListProps> = () => {
     </Link>
   ));
 
-  const n = useSelector((state: RootState) => state.listSlices.products.length);
+  const n = useAppSelector((state: RootState) => state.listSlices.products.length);
 
   return (
     <div>

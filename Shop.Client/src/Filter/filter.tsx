@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; 
+
+
 import { useAppDispatch } from "../main";
 import { setFilter } from "../redux/slices";
 import "./filter.css";
@@ -35,7 +37,8 @@ const Filter: React.FC<FilterProps> = () => {
         onChange={(e) => setTitle(e.target.value)}
       />
       &nbsp;&nbsp;
-      <span className="text-body-bold">Price:</span>
+      <span className="text-body-bold">Price:</span> 
+
       <label className="filter-label">
         <b></b>
       </label>
